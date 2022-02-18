@@ -1,0 +1,28 @@
+$tablet: 860px;
+$desktop: 1360px;
+
+$breakpoint-gap: 0.001px;
+
+@mixin tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin mobile-only {
+  @media (max-width: #{$tablet - $breakpoint-gap}) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media (min-width: $tablet) and (max-width: #{$desktop - $breakpoint-gap}) {
+    @content;
+  }
+}

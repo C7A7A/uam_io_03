@@ -1,0 +1,12 @@
+<div class="history-page">
+  <div class="image-container">
+    <img src="/assets/illustrations/history.svg" alt="History illustration">
+  </div>
+  <h2 class="title">Tyle się działo!</h2>
+  <div class="content">
+    <h3 class="subtitle">Tu znajduje się twoja historia obejrzanych filmów</h3>
+    <app-button variants="full-width" (click)="modalSearchMovie._open()">Dodaj film do historii</app-button>
+    <app-movies-block></app-movies-block>
+  </div>
+  <app-modal-search-movie #modalSearchMovie [plusAction]="addMovieToHistory.bind(this)"></app-modal-search-movie>
+</div>

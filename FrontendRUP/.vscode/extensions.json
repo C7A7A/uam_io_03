@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "msjsdiag.debugger-for-chrome",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "ms-vscode.vscode-typescript-next",
+    "wayou.vscode-todo-highlight",
+    "angular.ng-template",
+    "mikael.angular-beastcode",
+    "infinity1207.angular2-switcher",
+    "pmneo.tsimporter"
+  ]
+}

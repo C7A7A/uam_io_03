@@ -1,0 +1,8 @@
+<button [ngClass]="['button', variants, disabled ? 'disabled' : '']" [disabled]="disabled">
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+  <div *ngIf="icon" class="icon">
+    <fa-icon [icon]="icon"></fa-icon>
+  </div>
+</button>

@@ -1,0 +1,33 @@
+<div *ngIf="!hide" class="navbar">
+  <div class="top-line">
+    <div class="left-side">
+      <app-button class="back-arrow" [icon]="faArrowLeft" variants="no-background" (click)="goBack()"></app-button>
+      <h1 class="app-title" routerLink="/">Obejrzyjmy to razem</h1>
+    </div>
+    <div class="page-title">
+      <h1>{{ title }}</h1>
+    </div>
+    <div class="inline-menu">
+      <app-button [icon]="faPlus" variants="primary small reverse" routerLink="/lobby/new" *ngIf="isLoggedIn">Nowe spotkanie</app-button>
+      <app-button [icon]="faUsers" variants="small reverse" routerLink="/lobbies" *ngIf="isLoggedIn">Spotkania</app-button>
+      <app-button [icon]="faUser" variants="small reverse" routerLink="/profile" *ngIf="isLoggedIn">Profil</app-button>
+      <app-button [icon]="faUsers" variants="small reverse" routerLink="/friends" *ngIf="isLoggedIn">Znajomi</app-button>
+    </div>
+    <div class="right-side">
+      <app-badge [number]="notificationsCount" *ngIf="isLoggedIn">
+        <app-button class="notifications-button" variants="small" [icon]="faBell" (click)="notificationsPanel.togglePanel()"></app-button>
+      </app-badge>
+      <app-button class="logout-button" variants="small" (click)="logout()" *ngIf="isLoggedIn">Wyloguj się</app-button>
+      <app-button class="auth-button" variants="primary small" routerLink="/login" *ngIf="!isLoggedIn">Zaloguj się</app-button>
+      <app-button class="auth-button" variants="small" routerLink="/register" *ngIf="!isLoggedIn">Zarejestruj się</app-button>
+    </div>
+  </div>
+  <div class="bottom-line" *ngIf="isLoggedIn">
+    <app-button [icon]="faPlus" variants="primary small reverse" routerLink="/lobby/new" *ngIf="isLoggedIn">Nowe spotkanie</app-button>
+    <app-button [icon]="faUsers" variants="small reverse" routerLink="/lobbies" *ngIf="isLoggedIn">Spotkania</app-button>
+    <app-button [icon]="faUser" variants="small reverse" routerLink="/profile" *ngIf="isLoggedIn">Profil</app-button>
+    <app-button [icon]="faUsers" variants="small reverse" routerLink="/friends" *ngIf="isLoggedIn">Znajomi</app-button>
+  </div>
+  <app-notifications-panel #notificationsPanel></app-notifications-panel>
+  <app-snackbar></app-snackbar>
+</div>

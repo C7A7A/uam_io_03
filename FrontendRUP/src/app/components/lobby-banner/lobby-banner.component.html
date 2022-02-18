@@ -1,0 +1,8 @@
+<div [ngClass]="['lobby-banner', variants]">
+  <div class="title">{{ lobby.name }}</div>
+  <div class="subtitle">Członków: {{ lobby.participants.length }}</div>
+  <hr>
+  <div class="status" *ngIf="lobby.status == 'AKT'">W trakcie wybierania terminu</div>
+  <div class="status" *ngIf="lobby.status == 'AKF'">W trakcie selekcji filmów</div>
+  <div class="status" *ngIf="lobby.status == 'ZAK'">Film został wybrany</div>
+</div>

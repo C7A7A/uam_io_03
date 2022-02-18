@@ -1,0 +1,53 @@
+<div class="profile-page">
+  <div class="banner">
+    <div class="blob"></div>
+    <img class="picture" src="/assets/illustrations/profile.svg" alt="">
+    <p class="login">{{ user?.login }}</p>
+  </div>
+  <div class="profile-content">
+    <app-button class="profile-button" variants="full-width" routerLink="/friends">Znajomi</app-button>
+    <app-button class="profile-button" variants="full-width" (click)="logout()">Wyloguj się</app-button>
+    <div class="grid">
+      <app-profile-block blockTitle="Podstawowe dane" (edit)="modalUserDetails._open()">
+        <div class="user-data">
+          <div class="attributes">
+            <span>Email:</span>
+            <span>Imię:</span>
+            <span>Nazwisko:</span>
+          </div>
+          <div class="values">
+            <span>{{ user?.email }}</span>
+            <span>{{ user?.name }}</span>
+            <span>{{ user?.surname }}</span>
+          </div>
+        </div>
+      </app-profile-block>
+      <app-profile-block blockTitle="Połączone konta" [hideEditButton]="true">
+        <div class="accounts-content">
+          <app-user-banner [user]="{name: 'Microsoft', surname: '', login: ''}">
+            <app-menu [icon]="microsoftIcon" (click)="authorizeMicrosoftAccount()"></app-menu>
+          </app-user-banner>
+        </div>
+      </app-profile-block>
+      <app-profile-block blockTitle="Preferowane gatunki" (edit)="modalPreferredGenres._open()">
+        <div class="genres-list">
+          <span class="genre" *ngFor="let genre of user?.preferredGenres">{{ genre }}</span>
+        </div>
+      </app-profile-block>
+      <app-profile-block blockTitle="Kalendarz" [hideEditButton]="true">
+        <app-calendar></app-calendar>
+      </app-profile-block>
+      <app-profile-block blockTitle="Preferowane godziny" (edit)="modalPreferredHours._open()">
+        <app-hours-block [hours]="preferredHours" ></app-hours-block>
+      </app-profile-block>
+      <app-profile-block class="history" blockTitle="Obejrzane filmy" [hideEditButton]="true">
+        <app-movies-block></app-movies-block>
+        <app-button variants="full-width" routerLink="/history">Zobacz całą historię</app-button>
+      </app-profile-block>
+    </div>
+  </div>
+  <!-- MODALS -->
+  <app-modal-user-details #modalUserDetails></app-modal-user-details>
+  <app-modal-preferred-genres #modalPreferredGenres [(selectedGenres)]="preferredGenres" (accept)="updatePreferredGenres()" [hideCloseButton]="false"></app-modal-preferred-genres>
+  <app-modal-preferred-hours #modalPreferredHours [(hours)]="preferredHours" (accept)="updatePreferredHours()" [hideCloseButton]="false"></app-modal-preferred-hours>
+</div>

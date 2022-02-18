@@ -1,0 +1,119 @@
+@import '../mixins/main';
+
+$padding: 15px;
+
+/* INPUT FIELD */
+
+.mat-form-field {
+  font-family: 'Montserrat', sans-serif;
+  min-width: 0;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  svg {
+    position: absolute;
+    color: $color-white;
+    top: calc(.4375em + #{$padding});
+    left: $padding;
+  }
+
+  .mat-form-field-infix {
+    border-top: 0;
+  }
+
+  .mat-input-element-infix {
+    position: relative;
+  }
+
+  .mat-form-field-label-wrapper {
+    font-weight: bold;
+    overflow: visible;
+
+    .mat-form-field-label {
+      transform: translateX(#{$padding * 3}) translateY(#{$padding - 0.5px});
+
+      * {
+        color: $color-grey-40;
+      }
+    }
+  }
+
+  &.mat-form-field-invalid {
+    .mat-input-element {
+      border: 1px solid #f44336;;
+    }
+  }
+
+  &.mat-form-field-should-float {
+    .mat-form-field-label-wrapper {
+      .mat-form-field-label {
+        transform: translateY(-1.25em) scale(0.75) perspective(100px) translateZ(0.001px)
+      }
+    }
+  }
+
+  .mat-input-element {
+    color: $color-white;
+    background-color: $color-grey-20;
+    padding: $padding;
+    padding-left: #{$padding * 3};
+    border-radius: $border-radius;
+    font-weight: bold;
+    caret-color: $color-white;
+  }
+
+  .mat-form-field-underline {
+    display: none;
+  }
+
+  .mat-form-field-subscript-wrapper {
+    overflow: visible;
+
+    .mat-error {
+      transform: translateY(-8px);
+      font-weight: bold;
+    }
+  }
+}
+
+.mat-form-field-subscript-wrapper {
+  position: relative !important;
+}
+
+/* CHECKBOX FIELD */
+
+.mat-checkbox {
+  .mat-checkbox-inner-container {
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+  }
+
+  .mat-ripple-element {
+    background: $color-primary;
+  }
+
+  &.mat-checkbox-checked .mat-checkbox-background {
+    background-color: $color-primary;
+  }
+
+  .mat-ripple-element {
+    background: $color-primary !important;
+  }
+
+  .mat-checkbox-frame {
+    border-color: $color-text;
+  }
+}
+
+/* INPUT TIME */
+
+input[type=time]::-webkit-calendar-picker-indicator {
+  transform: scale(1.5);
+  cursor: pointer;
+  position: absolute;
+  left: 5px;
+  opacity: 0.01;
+}

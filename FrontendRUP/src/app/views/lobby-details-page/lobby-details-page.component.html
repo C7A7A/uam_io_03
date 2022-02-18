@@ -1,0 +1,27 @@
+<div class="lobby-details-page">
+  <div class="image-container">
+    <img src="/assets/illustrations/lobby_picking_date.svg" alt="date picking illustration">
+  </div>
+  <h2 class="title">Rozpocznijmy organizację!</h2>
+  <h3 class="subtitle">Na tym etapie wszyscy uczestnicy muszą zaakceptować lub drzucić proponowany termin</h3>
+  <div class="content">
+    <div class="proposed-date" *ngIf="lobby.status !== LobbyStatus.SETTING_DATE">
+      <h4 class="subtitle">Proponowany termin:</h4>
+      <h4 class="date">{{ term }}</h4>
+      <app-button variants="primary full-width" (click)="sendDateVote(true)">Zaakceptuj proponowany termin</app-button>
+      <app-button variants="full-width" (click)="sendDateVote(false)">Odrzuć proponowany termin</app-button>
+    </div>
+    <div class="proposed-date" *ngIf="lobby.status === LobbyStatus.SETTING_DATE">
+      <h4 class="subtitle">Wybrany termin:</h4>
+      <h4 class="date">{{ term }}</h4>
+      <!-- Jeśli nie wybrano jeszcze filmów -->
+      <app-button variants="primary full-width" routerLink="/movie">Przejdź do selekcji filmów</app-button>
+      <!-- W przeciwnym wypadku powinien się wyświetlić komunikat, że filmy zostały już wybrane -->
+    </div>
+    <app-profile-block [hideEditButton]="true" blockTitle="Członkowie ({{ lobby.participants.length }})">
+      <app-user-banner *ngFor="let user of lobby.participants" [user]="user">
+        <fa-icon *ngIf="user.login == lobby.host.login" [icon]="faCouch" class="host-icon"></fa-icon>
+      </app-user-banner>
+    </app-profile-block>
+  </div>
+</div>

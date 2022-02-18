@@ -1,0 +1,11 @@
+<div class="lobbies-page">
+  <div class="image-container">
+    <img src="/assets/illustrations/lobbies_list.svg" alt="getting started illustration">
+  </div>
+  <h2 class="title">Lista spotkań</h2>
+  <div class="content">
+    <div class="banner" *ngFor="let lobby of lobbies">
+      <app-lobby-banner class="lobby-card" [lobby]="lobby" (click)="openLobbyDetails(lobby.name)"></app-lobby-banner>
+    </div>
+  </div>
+</div>

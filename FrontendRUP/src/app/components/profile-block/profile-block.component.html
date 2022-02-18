@@ -1,0 +1,9 @@
+<div class="profile-block">
+  <div class="header">
+    <p class="title">{{ blockTitle }}</p>
+    <fa-icon class="icon" [class.invisible]="hideEditButton" [icon]="faPen" (click)="edit.emit()"></fa-icon>
+  </div>
+  <div class="content">
+    <ng-content></ng-content>
+  </div>
+</div>

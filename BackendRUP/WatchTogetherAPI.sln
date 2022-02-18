@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30128.74
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WatchTogetherAPI", "WatchTogetherAPI.csproj", "{385ECC1A-3981-4527-97A4-D43609CCC644}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{385ECC1A-3981-4527-97A4-D43609CCC644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{385ECC1A-3981-4527-97A4-D43609CCC644}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{385ECC1A-3981-4527-97A4-D43609CCC644}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{385ECC1A-3981-4527-97A4-D43609CCC644}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E2C6AA29-E777-4D81-B479-4C663066FFBB}
+	EndGlobalSection
+EndGlobal

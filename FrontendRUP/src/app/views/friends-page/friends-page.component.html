@@ -1,0 +1,19 @@
+<div class="friends-page">
+  <div class="image-container">
+    <img src="/assets/illustrations/friends.svg" alt="pizza sharing illustration">
+  </div>
+  <h2 class="title">W grupie zawsze raźniej</h2>
+  <h3 class="subtitle">Korzystaj z alikacji razem z innymi!</h3>
+  <div class="content">
+    <app-button [icon]="faPlus" variants="full-width reverse" (click)="modalSearchUser._open()">Dodaj znajomego</app-button>
+    <app-user-banner class="user-banner" *ngFor="let friend of friends" [user]="friend">
+      <app-menu [matMenuTriggerFor]="menu"></app-menu>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="removeFromFriends(friend.login)">
+          <span>Usuń ze znajomych</span>
+        </button>
+      </mat-menu>
+    </app-user-banner>
+  </div>
+  <app-modal-search-user #modalSearchUser [plusAction]="addToFriends.bind(this)"></app-modal-search-user>
+</div>

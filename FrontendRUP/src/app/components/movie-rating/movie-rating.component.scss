@@ -1,0 +1,24 @@
+@import '../../mixins/main';
+
+.rating{
+    min-width: 100px;
+    display: flex;
+
+    svg{
+        margin-right: 5px;
+        fill: $color-white;
+    }
+    p{
+        color: $color-white;
+        max-width: 50px;
+        font-size: 24px;
+        margin: auto 0 auto 20px; 
+    }
+}
+
+.movie-title {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: left;
+    margin-bottom: 15px;
+}

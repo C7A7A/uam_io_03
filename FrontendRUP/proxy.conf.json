@@ -1,0 +1,11 @@
+{
+  "/posts": {
+    "target": "https://localhost:5001",
+    "secure": false,
+    "pathRewrite": {
+      "^/posts": ""
+    },
+    "logLevel": "debug",
+    "changeOrigin": true
+  }
+}

@@ -1,0 +1,13 @@
+@import '../../mixins/main';
+
+.modal-text {
+  color: $color-text;
+  opacity: .75;
+  text-align: center;
+  margin: 20px 0 40px 0;
+  line-height: 1.5em;
+}
+
+.user-form {
+  overflow: hidden;
+}

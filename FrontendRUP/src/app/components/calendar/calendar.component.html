@@ -1,0 +1,23 @@
+<div class="calendar">
+  <div class="row-months">
+    <div class="month-button previous" (click)="moveToPreviousMonth()">
+      <fa-icon [icon]="faAngleLeft"></fa-icon>
+      <span>{{ previousMonthName }}</span>
+    </div>
+    <div class="current-month">{{ currentMonthName }}</div>
+    <div class="month-button next" (click)="moveToNextMonth()">
+      <span>{{ nextMonthName }}</span>
+      <fa-icon [icon]="faAngleRight"></fa-icon>
+    </div>
+  </div>
+  <div class="grid">
+    <div class="row">
+      <div class="cell head" *ngFor="let day of daysOfWeek">{{ day }}</div>
+    </div>
+    <div class="row" *ngFor="let row of days">
+      <div class="cell" *ngFor="let day of row" (click)="openDay(day)">
+        <span>{{ day }}</span>
+      </div>
+    </div>
+  </div>
+</div>

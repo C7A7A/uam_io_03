@@ -1,0 +1,11 @@
+@mixin full-height {
+  min-height: calc(100vh - #{$navbar-height-mobile + $footer-height-mobile});
+
+  @include tablet {
+    min-height: calc(100vh - #{$navbar-height-tablet + $footer-height-tablet});
+  }
+
+  @include desktop {
+    min-height: calc(100vh - #{$navbar-height-desktop + $footer-height-desktop});
+  }
+}

@@ -1,0 +1,15 @@
+@import '../mixins/main';
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $color-background;
+  overflow-x: hidden;
+}
+
+strong {
+  font-weight: bold;
+}

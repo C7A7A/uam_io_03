@@ -1,0 +1,37 @@
+<nav class="navbar">
+  <div
+    class="item"
+    routerLink="/lobby/new" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}"
+    [class.active]="activeTab === '/lobby/new'"
+  >
+    <fa-icon class="icon" [icon]="faPlus"></fa-icon>
+    <span class="label">Nowe spotkanie</span>
+  </div>
+  <div
+    class="item"
+    routerLink="/lobbies" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}"
+    [class.active]="activeTab.includes('/lobbies')"
+  >
+    <fa-icon class="icon" [icon]="faUsers"></fa-icon>
+    <span class="label">Spotkania</span>
+  </div>
+  <div
+    class="item"
+    routerLink="/profile" routerLinkActive="active"
+    [class.active]="activeTab === '/profile'"
+  >
+    <fa-icon class="icon" [icon]="faUser"></fa-icon>
+    <span class="label">Profil</span>
+  </div>
+  <div
+    class="item"
+    routerLink="/" routerLinkActive="active"
+    [routerLinkActiveOptions]="{exact: true}"
+    [class.active]="activeTab === '/'"
+  >
+    <fa-icon class="icon" [icon]="faStream"></fa-icon>
+    <span class="label">Instrukcja</span>
+  </div>
+</nav>

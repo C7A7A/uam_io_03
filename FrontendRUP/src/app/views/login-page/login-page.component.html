@@ -1,0 +1,36 @@
+<div class="login-page">
+  <div class="image-container">
+    <img src="/assets/illustrations/welcome.svg" alt="welcome illustration">
+  </div>
+  <h2 class="title">Witaj ponownie!</h2>
+  <h3 class="subtitle">Zaloguj się na istniejące konto<br>w Obejrzyjmy to razem </h3>
+  <form class="login-form" (submit)="login()">
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <mat-label>Nazwa użytkownika</mat-label>
+      <input type="text" matInput [formControl]="loginFormControl">
+      <mat-error *ngIf="loginFormControl.hasError('required')">
+        Nazwa użytkownika jest wymagana
+      </mat-error>
+      <mat-error *ngIf="loginFormControl.hasError('incorrect')">
+        Nazwa użytkownika lub hasło są nieporpawne
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faLock"></fa-icon>
+      <mat-label>Hasło</mat-label>
+      <input type="password" matInput [formControl]="passwordFormControl">
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Hasło jest wymagane
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('incorrect')">
+        Nazwa użytkownika lub hasło są nieporpawne
+      </mat-error>
+    </mat-form-field>
+    <app-button variants="full-width primary form-member">Zaloguj się</app-button>
+    <div class="form-note">
+      <span class="text">Nie masz konta?</span>
+      <a href="#" class="link" routerLink="/register">Zarejestruj się</a>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,13 @@
+<div class="modal" *ngIf="open">
+  <div class="modal-wrapper">
+    <div class="modal-header">
+      <h4 class="title">{{ modalTitle }}</h4>
+      <div class="close-button" (click)="_close()" *ngIf="!hideCloseButton">
+        <fa-icon [icon]="faTimes"></fa-icon>
+      </div>
+    </div>
+    <div class="modal-content" preventParentScroll [preventParentScrollDisabled]="false">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>

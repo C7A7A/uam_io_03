@@ -1,0 +1,78 @@
+<div class="register-page">
+  <div class="image-container">
+    <img src="/assets/illustrations/welcome.svg" alt="welcome illustration">
+  </div>
+  <h2 class="title">Cieszymy się,<br>że będziesz z nami</h2>
+  <h3 class="subtitle">Załóż nowe konto<br>w Obejrzyjmy to razem </h3>
+  <form class="register-form" (submit)="onSubmit()">
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <mat-label>Nazwa użytkownika</mat-label>
+      <input type="text" matInput [formControl]="loginFormControl" autocomplete="off">
+      <mat-error *ngIf="loginFormControl.hasError('required')">
+        Nazwa użytkownika jest wymagana
+      </mat-error>
+      <mat-error *ngIf="loginFormControl.hasError('available')">
+        Nazwa użytkownika jest zajęta
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faAt"></fa-icon>
+      <mat-label>Adres email</mat-label>
+      <input type="email" matInput [formControl]="emailFormControl">
+      <mat-error *ngIf="emailFormControl.hasError('required') && !emailFormControl.hasError('email')">
+        Adres email jest wymagany
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('email')">
+        Adres email jest nieprawidłowy
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <mat-label>Imię</mat-label>
+      <input type="text" matInput [formControl]="nameFormControl">
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        Imię jest wymagane
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <mat-label>Nazwisko</mat-label>
+      <input type="text" matInput [formControl]="surnameFormControl">
+      <mat-error *ngIf="surnameFormControl.hasError('required')">
+        Nazwisko jest wymagane
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faLock"></fa-icon>
+      <mat-label>Hasło</mat-label>
+      <input type="password" matInput [formControl]="passwordFormControl">
+      <mat-error *ngIf="passwordFormControl.hasError('required')">
+        Hasło jest wymagane
+      </mat-error>
+      <mat-error *ngIf="passwordFormControl.hasError('pattern')">
+        Hasło musi składać się z conajmniej 6 znaków, w tym jednej dużej litery, jednej cyfry i znaku specjalnego
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faLock"></fa-icon>
+      <mat-label>Powtórz hasło</mat-label>
+      <input type="password" matInput [formControl]="rePasswordFormControl">
+      <mat-error *ngIf="rePasswordFormControl.hasError('required')">
+        Powtórzenie hasła jest wymagane
+      </mat-error>
+      <mat-error *ngIf="rePasswordFormControl.hasError('notMatchingPasswords')">
+        Hasła nie są takie same
+      </mat-error>
+    </mat-form-field>
+    <app-button variants="full-width primary form-member">Zarejestruj się</app-button>
+    <div class="form-note">
+      <span class="text">Masz już konto?</span>
+      <a href="#" class="link" routerLink="/login">Zaloguj się</a>
+    </div>
+  </form>
+
+  <!-- SELECTING PREFERRED GENRES AT FIRST LOGIN -->
+  <app-modal-preferred-genres #modalPreferredGenres [(selectedGenres)]="preferredGenres" (accept)="moveToNexWindow()"></app-modal-preferred-genres>
+  <app-modal-preferred-hours #modalPreferredHours [(hours)]="preferredHours" (accept)="register()"></app-modal-preferred-hours>
+</div>

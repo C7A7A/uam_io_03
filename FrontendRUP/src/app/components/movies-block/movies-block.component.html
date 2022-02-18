@@ -1,0 +1,17 @@
+<div class="movies-block">
+  <div class="card" *ngFor="let movie of movies">
+    <div class="left">
+      <div class="title">{{ movie.title }}</div>
+      <div class="rating">
+        <fa-icon [icon]="faStar"></fa-icon>
+        <span>{{ movie.rating }}</span>
+      </div>
+      <div class="duration">
+        {{ movie.length }} minut
+      </div>
+    </div>
+    <div class="right">
+      <img class="cover" [src]="movie.poster_path" alt="">
+    </div>
+  </div>
+</div>

@@ -1,0 +1,27 @@
+@import '../../mixins/main';
+
+.user-banner {
+  width: 100%;
+  max-width: 350px;
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px 0 20px;
+  height: 60px;
+  background-color: $color-grey-20;
+  border-radius: $border-radius;
+  margin: 20px 0 0 0;
+
+  &.full-width {
+    max-width: none;
+  }
+
+  .title {
+    color: $color-text;
+  }
+
+  .actions {
+
+  }
+}

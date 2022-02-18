@@ -1,0 +1,44 @@
+@import '../../mixins/main';
+
+.lobby-banner {
+  width: 100%;
+  max-width: 350px;
+  box-shadow: $box-shadow;
+  display: flex;
+  padding: 20px;
+  background-color: $color-grey-20;
+  border-radius: $border-radius;
+  margin: 20px 0 0 0;
+  flex-direction: column;
+  cursor: pointer;
+  transition: background-color .3s ease, transform .3s ease;
+
+  &:hover {
+    background-color: darken($color-grey-20, 2);
+  }
+
+  &.full-width {
+    max-width: none;
+  }
+
+  .title {
+    color: $color-text;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    color: $color-text;
+    padding-top: 20px;
+  }
+
+  hr {
+    margin-top: 20px;
+    width: 100%;
+    opacity: .1;
+  }
+
+  .status {
+    padding-top: 10px;
+    color: $color-text;
+  }
+}

@@ -1,0 +1,114 @@
+@import '../../mixins/main';
+
+.modal {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  animation: show .3s forwards;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: black;
+    opacity: .4;
+    animation: show-reversed .3s forwards;
+  }
+
+  .modal-wrapper {
+    position: absolute;
+    bottom: 0;
+    z-index: 1001;
+    width: 100%;
+    height: calc(100vh - #{$navbar-height-mobile});
+    background-color: $color-background;
+    border-radius: $border-radius $border-radius 0 0;
+    max-width: 600px;
+
+    .modal-header {
+      width: 100%;
+      padding: 25px 20px 20px;
+      display: flex;
+      justify-content: center;
+
+      .title {
+        color: $color-text;
+        position: relative;
+        font-size: 16px;
+
+        &::before {
+          content: '';
+          position: absolute;
+          width: 90px;
+          height: 1px;
+          background-color: $color-grey-30;
+          bottom: -10px;
+          left: calc(50% - 45px);
+        }
+      }
+
+      .close-button {
+        color: $color-text;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        background-color: transparent;
+        padding: 10px;
+        font-size: 18px;
+        width: 40px;
+        height: 40px;
+        border-radius: $border-radius;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: background-color .4s ease;
+
+        &:hover {
+          background-color: $color-grey-30;
+        }
+
+        fa-icon {
+          transform: translateY(2px);
+        }
+      }
+    }
+
+    .modal-content {
+      margin-top: 20px;
+      padding: 0 40px 40px 40px;
+      overflow: auto;
+      height: calc(100% - 83px);
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes show-reversed {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: .4;
+    transform: translateY(0);
+  }
+}

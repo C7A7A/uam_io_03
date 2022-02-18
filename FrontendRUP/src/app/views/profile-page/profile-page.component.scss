@@ -1,0 +1,143 @@
+@import '../../mixins/main';
+
+.profile-page {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include full-height;
+
+  .banner {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    max-width: 400px;
+
+    &::after {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+
+    .blob {
+      width: 100%;
+      height: 100%;
+      background-image: url('/assets/blobs/profile.svg');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .picture {
+      width: 100%;
+      padding: 40px;
+
+      img {
+        width: 100%;
+      }
+    }
+
+    .login {
+      color: $color-text;
+      text-align: center;
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 20px;
+    }
+  }
+
+  .profile-content {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+
+    .profile-button {
+      max-width: 350px;
+      width: 100%;
+
+      &:last-of-type {
+        margin-top: 20px;
+      }
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    .grid {
+      padding-top: 30px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .user-data {
+      width: 100%;
+      padding: 20px;
+      display: flex;
+
+      .attributes, .values {
+        width: 100%;
+
+        & > * {
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+
+      .attributes {
+        color: $color-text;
+        opacity: .75;
+      }
+
+      .values {
+        color: $color-text;
+      }
+    }
+  }
+
+  .genres-list {
+    padding: 8px 10px 10px 10px;
+    .genre {
+      color: $color-text;
+      background-color: $color-primary;
+      display: inline-block;
+      padding: 7px 14px;
+      border-radius: 20px;
+      margin-top: 7px;
+
+      &:not(:last-child) {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  .accounts-content {
+    ::ng-deep {
+      .user-banner {
+        margin: 0;
+        max-width: none;
+      }    
+    }
+
+    padding: 20px 0;
+  }
+
+  .history {
+    ::ng-deep button {
+      margin-top: 20px;
+    }
+  }
+}
+
+

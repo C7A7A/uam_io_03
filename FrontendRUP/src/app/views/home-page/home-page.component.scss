@@ -1,0 +1,252 @@
+@import '../../mixins/main';
+
+.home-page {
+  background-color: $color-background;
+  width: 100%;
+
+  @include full-height;
+}
+
+.hero {
+  width: 100%;
+  background-color: #3A3939;
+  padding: 50px 30px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+  @include tablet {
+    position: relative;
+    padding: 50px 150px 30px 150px;
+    
+    background-image: url('/assets/blobs/homepage_hero.svg');
+    background-position: 30vw 0;
+    background-repeat: no-repeat;
+  }
+
+  @include desktop {
+    justify-content: flex-start;
+    background-position: 10vw 0;
+    background-size: 150% 150%;
+  }
+
+  .hero-content {
+    max-width: 400px;
+
+    @include tablet {
+      height: 750px;
+      max-width: 600px;
+    }
+
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      max-width: 500px;
+    }
+  }
+
+  .image-container {
+    width: 100%;
+    max-width: 400px;
+
+    img {
+      width: 100%;
+
+      @include tablet {
+        width: auto;
+        position: absolute;
+        margin-left: -150px;
+        bottom: 0;
+      }
+
+      @include desktop {
+        right: 0;
+      }
+    }
+
+    @include tablet {
+      position: absolute;
+      bottom: 0;
+      height: 50%;
+      z-index: 2;
+    }
+
+    @include desktop {
+      position: initial;
+      height: 0;
+    }
+  }
+
+  .title {
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    color: $color-white;
+    margin-top: 30px;
+
+    @include tablet {
+      font-size: 40px;
+      position: relative;
+      z-index: 3;
+    }
+
+    @include desktop {
+      text-align: left;
+    }
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: $color-white;
+    margin-top: 30px;
+    line-height: 20px;
+
+    @include tablet {
+      font-size: 21px;
+      line-height: 31px;
+      position: relative;
+      z-index: 3;
+    }
+  }
+
+  .buttons {
+    @include tablet {
+      display: flex;
+      position: relative;
+      z-index: 3;
+
+      & > * {
+        flex-basis: 100%;
+      }
+    }
+
+    @include desktop {
+      width: 100%;
+    }
+
+    & > * {
+      ::ng-deep button {
+        margin-top: 30px;
+
+        
+      }
+      @include tablet {
+        &:not(:last-child) {
+          margin-right: 30px;
+        }
+      }
+    }
+  }
+}
+
+.title-banner {
+  font-size: 30px;
+  color: $color-white;
+  font-weight: bold;
+  padding: 40px 20px 20px 20px;
+
+  @include tablet {
+    font-size: 40px;
+    padding: 40px 20px 20px 40px;
+  }
+}
+
+.section {
+  height: 250px;
+  overflow: hidden;
+
+  @for $i from 2 through 6 {
+    &:nth-child(#{$i}) .section-image::before {
+      background-image: url('/assets/blobs/instruction_#{$i - 1}.svg');
+    }
+  }
+
+  &:nth-child(odd) {
+    background-color: #3A3939;
+
+    .section-content {
+      flex-direction: row-reverse;
+    }
+
+    .section-text {
+      padding-left: 30px;
+
+      @media (min-width: 430px) {
+        padding-left: 30px;
+        padding-right: 0;
+      }
+    }
+
+    .section-image {
+      margin-left: 20px;
+    }
+  }
+
+  @include tablet {
+    height: 400px;
+  }
+
+  .section-content {
+    max-width: 400px;
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      max-width: 500px;
+    }
+
+    @include desktop {
+      max-width: 700px;
+    }
+  }
+
+  .section-image {
+    flex-basis: 100%;
+    height: 50%;
+    position: relative;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      width: 150%;
+      height: 150%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    img {
+      height: 80%;
+      position: relative;
+      z-index: 4;
+
+      @media (min-width: 430px) {
+        height: 100%;
+      }
+    }
+  }
+
+  .section-text {
+    flex-basis: 100%;
+    color: $color-white;
+    padding: 0 30px;
+    position: relative;
+    z-index: 5;
+    line-height: 20px;
+
+    @media (min-width: 430px) {
+      padding-left: 0;
+    }
+
+    @include tablet {
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+}
+

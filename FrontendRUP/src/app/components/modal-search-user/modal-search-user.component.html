@@ -1,0 +1,15 @@
+<app-modal modalTitle="Wyszukiwanie znajomych" [(open)]="open">
+  <form class="search-form" autocomplete="off">
+    <div class="modal-text">Wyszukaj znajomych po loginie lub imieniu i nazwisku.</div>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faSearch"></fa-icon>
+      <mat-label>Wyszukiwanie</mat-label>
+      <input type="text" matInput [formControl]="searchFormControl">
+    </mat-form-field>
+    <div class="search-result">
+      <app-user-banner *ngFor="let user of searchResult" [user]="user" variants="full-width">
+        <app-menu [icon]="faPlus" (click)="plusAction(user)"></app-menu>
+      </app-user-banner>
+    </div>
+  </form>
+</app-modal>

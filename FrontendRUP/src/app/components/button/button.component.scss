@@ -1,0 +1,90 @@
+@import '../../mixins/main';
+
+:host[ng-reflect-disabled=true] {
+  pointer-events: none;
+}
+
+.button {
+  border-radius: $border-radius;
+  background-color: $color-grey-30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10px;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color .3s ease;
+  min-height: 45px;
+  cursor: pointer;
+
+  &.no-background {
+    background: none !important;
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.small {
+    min-height: 40px;
+    font-size: 14px;
+  }
+
+  &.form-member {
+    margin: 7px 0 20px;
+    padding: 8px 8px;
+  }
+
+  &.reverse {
+    flex-direction: row-reverse;
+
+    .content {
+      margin-left: 0;
+      margin-right: 10px;
+    }
+  }
+
+  &:hover {
+    background-color: $color-grey-25;
+  }
+
+  &.primary {
+    background-color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary-darken;
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+    opacity: .7;
+  }
+
+  .content {
+    color: $color-white;
+    flex-grow: 1;
+    flex-basis: 100%;
+    margin-left: 10px;
+  }
+
+  .content:empty {
+    margin-left: 0;
+  }
+
+  .content:empty ~ .icon {
+    margin: 0 5px;
+  }
+
+  .content:first-child:last-child {
+    margin-right: 10px;
+  }
+
+  .icon {
+    font-size: 17px;
+    flex-shrink: 1;
+    flex-grow: 0;
+    color: $color-white;
+    margin: 0 10px 0 8px;
+  }
+}

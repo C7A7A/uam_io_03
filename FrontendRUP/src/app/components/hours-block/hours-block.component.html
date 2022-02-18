@@ -1,0 +1,17 @@
+<div class="hours-block" *ngIf="hours">
+  <div class="hours-group" *ngFor="let label of DAYS_LABELS_SHORT; index as i">
+    <p class="hours-title">{{ DAYS_LABELS_LONG[i] }}</p>
+    <div class="line">
+      <mat-form-field>
+        <fa-icon [icon]="faClock"></fa-icon>
+        <mat-label>Od</mat-label>
+        <input type="time" [value]="hours[label]?.start" matInput readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <fa-icon [icon]="faClock"></fa-icon>
+        <mat-label>Do</mat-label>
+        <input type="time" [value]="hours[label]?.end"matInput readonly>
+      </mat-form-field>
+    </div>
+  </div>
+</div>

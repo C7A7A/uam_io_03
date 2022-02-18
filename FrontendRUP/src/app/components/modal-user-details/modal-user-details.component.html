@@ -1,0 +1,33 @@
+<app-modal modalTitle="Podstawowe dane" [(open)]="open">
+  <form class="user-form">
+    <div class="modal-text">Tu możesz zmienić dane swojego profilu</div>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faAt"></fa-icon>
+      <mat-label>Adres email</mat-label>
+      <input type="text" matInput [formControl]="emailFormControl">
+      <mat-error *ngIf="emailFormControl.hasError('required')">
+        Adres email jest wymagany
+      </mat-error>
+      <mat-error *ngIf="emailFormControl.hasError('email')">
+        Adres email jest niepoprawny
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <mat-label>Imię</mat-label>
+      <input type="text" matInput [formControl]="nameFormControl">
+      <mat-error *ngIf="nameFormControl.hasError('required')">
+        Imię jest wymagane
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faUser"></fa-icon>
+      <mat-label>Nazwisko</mat-label>
+      <input type="text" matInput [formControl]="surnameFormControl">
+      <mat-error *ngIf="surnameFormControl.hasError('required')">
+        Nazwisko jest wymagane
+      </mat-error>
+    </mat-form-field>
+    <app-button variants="full-width primary" (click)="submit()">Zapisz zmiany</app-button>
+  </form>
+</app-modal>

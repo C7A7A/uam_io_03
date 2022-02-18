@@ -1,0 +1,62 @@
+@import '../../mixins/main';
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: $border-radius $border-radius 0 0;
+  background-color: $color-background;
+  height: 70px;
+  box-shadow: 0px 0px 10px rgba(black, .16);
+
+  @include tablet {
+    display: none;
+  }
+
+  .item {
+    color: $color-white;
+    font-size: 18px;
+    overflow: hidden;
+    height: 40px;
+    min-width: 40px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: transparent;
+    max-width: 0;
+    transition:
+      max-width .4s ease,
+      background-color .3s ease;
+    border-radius:  $border-radius;
+    cursor: pointer;
+
+    &:hover, &.active {
+      background-color: $color-grey-20;
+    }
+
+    &.active {
+      max-width: 220px;
+    }
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .label {
+      display: inline-block;
+      padding: 0 11px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+  }
+}

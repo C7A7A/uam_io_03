@@ -1,0 +1,24 @@
+<div class="lobby-page">
+  <div class="image-container">
+    <img src="/assets/illustrations/lobby_creation.svg" alt="getting started illustration">
+  </div>
+  <h2 class="title">Tu rozpoczyna się przygoda!</h2>
+  <h3 class="subtitle">Wprowadź nazwę spotkania, a system dobierze znajomych automatycznie</h3>
+  <form class="lobby-form">
+    <mat-form-field class="full-width">
+      <fa-icon [icon]="faUsers"></fa-icon>
+      <mat-label>Nazwa spotkania</mat-label>
+      <input type="text" matInput [formControl]="lobbyFormControl">
+      <mat-error *ngIf="lobbyFormControl.hasError('required')">
+        Nazwa spotkania jest wymagana
+      </mat-error>
+      <mat-error *ngIf="lobbyFormControl.hasError('minLength')">
+        Nazwa spotkania musi mieć conajmniej 3 znaki
+      </mat-error>
+      <mat-error *ngIf="lobbyFormControl.hasError('available')">
+        Nazwa spotkania jest zajęta
+      </mat-error>
+    </mat-form-field>
+    <app-button variants="full-width primary" (click)="createLobby()">Utwórz spotkanie</app-button>
+  </form>
+</div>

@@ -1,0 +1,30 @@
+/*  COLORS */
+$color-grey-0: #212121;
+$color-grey-10: #303030;
+$color-grey-25: #404040;
+$color-grey-20: #424242;
+$color-grey-30: #545454;
+$color-grey-40: #626262;
+
+$color-white: #E8E8E8;
+
+$color-blue: #4B75CB;
+$color-blue-10: #3A67C4;
+
+$color-primary: $color-blue;
+$color-primary-darken: $color-blue-10;
+$color-text: $color-white;
+$color-background: $color-grey-10;
+
+/* SIZING */
+$navbar-height-mobile: 85px;
+$navbar-height-tablet: 162px;
+$navbar-height-desktop: 85px;
+
+$footer-height-mobile: 130px;
+$footer-height-tablet: 56.5px;
+$footer-height-desktop: 56.5px;
+
+/* OTHER */
+$border-radius: 5px;
+$box-shadow: none;

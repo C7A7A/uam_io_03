@@ -1,0 +1,48 @@
+@import '../../mixins/main';
+
+.friends-page {
+  background-color: $color-background;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include tablet {
+    justify-content: center;
+  }
+
+  @include full-height;
+
+  .image-container {
+    width: 100%;
+    padding: 0 40px;
+    max-width: 400px;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .title {
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    color: $color-white;
+    margin-top: 30px;
+    padding: 0 40px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: $color-white;
+    margin-top: 30px;
+    text-align: center;
+  }
+
+  .content {
+    padding: 30px;
+    overflow: hidden;
+    width: 100%;
+    max-width: 400px;
+  }
+}

@@ -1,0 +1,106 @@
+@import '../../mixins/main';
+
+.navbar {
+  background-color: $color-background;
+
+  .top-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .app-title {
+    font-weight: 900;
+    color: $color-white;
+    font-size: 20px;
+    display: none;
+    cursor: pointer;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .back-arrow {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .page-title {
+    color: white;
+    display: flex;
+    align-items: center;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  .inline-menu {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      flex-gro: 1;
+      flex-basis: 100%;
+      padding-left: 40px;
+
+      & > *:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  .left-side {
+    flex-shrink: 0;
+  }
+
+  .right-side {
+    display: flex;
+    flex-shrink: 0;
+
+    & > *:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  .notifications-button {
+  }
+
+  .auth-button {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .logout-button {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  .bottom-line {
+    display: none;
+
+    @include tablet {
+      display: block;
+      background-color: $color-grey-0;
+      display: flex;
+      padding: 20px;
+
+      & > *:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+}

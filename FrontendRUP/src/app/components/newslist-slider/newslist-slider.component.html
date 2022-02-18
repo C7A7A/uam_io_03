@@ -1,0 +1,26 @@
+<div class="slider">
+  <div class="arrow-left" *ngIf="displayArrowLeft" (click)="handleLeftArrowClick()">
+    <fa-icon [icon]="faArrowLeft"></fa-icon>
+  </div>
+  <div class="arrow-right" *ngIf="displayArrowRight" (click)="handleRightArrowClick()">
+    <fa-icon [icon]="faArrowRight"></fa-icon>
+  </div>
+  <div #wrapper class="slider-wrapper">
+    <div class="card" *ngFor="let item of newses?.item">
+      <a [href]="item.link[0]">
+        <div class="header" [ngStyle]="{ backgroundImage: 'url(' + item.enclosure[0].$.url + ')' }">
+          <div class="title">{{ item.title[0] }}</div>
+        </div>
+        <div class="content">
+          <p class="author">{{ item['dc:creator'] && item['dc:creator'][0] || newses['dc:creator'][0] }}</p>
+          <div class="description">
+            <p class="text">
+              {{ item.description[0] }}
+            </p>
+          </div>
+          <p class="date">{{ item['dc:date'][0] }}</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

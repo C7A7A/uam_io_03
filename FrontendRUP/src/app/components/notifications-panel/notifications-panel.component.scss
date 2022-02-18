@@ -1,0 +1,148 @@
+@import '../../mixins/main';
+
+.panel {
+  position: fixed;
+  background-color: $color-background;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  animation: show .3s forwards;
+
+  @include tablet {
+    position: absolute;
+    top: 90px;
+    left: calc(100% - 410px);
+    width: 400px;
+    height: auto;
+    border-radius: $border-radius;
+  }
+
+  .header {
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+
+    @include tablet {
+      background-color: $color-grey-30;
+      position: relative;
+      border-radius: $border-radius $border-radius 0 0;
+
+      &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        transform: rotate(45deg);
+        position: absolute;
+        top: -10px;
+        left: 53%;
+        background-color: $color-grey-30;
+        border-radius: $border-radius 0 0 0;
+      }
+    }
+  }
+
+  .title {
+    color: white;
+  }
+
+  .close-button {
+    color: $color-text;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 18px;
+    width: 40px;
+    height: 40px;
+    border-radius: $border-radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s ease;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-grey-20;
+    }
+  }
+
+  .content {
+    @include tablet {
+      border-radius: 0 0 $border-radius $border-radius;
+      overflow: hidden;
+    }
+
+    .entry {
+      padding: 20px;
+      background-color: #202020;
+      position: relative;
+
+      &:nth-child(odd) {
+        background-color: #292929;
+      }
+
+      .text {
+        color: $color-text;
+        padding: 0 50px 20px 0;
+        line-height: 1.3em;
+      }
+      .buttons {
+        display: flex;
+        justify-content: flex-end;
+
+        & > *:not(:last-child) {
+          margin-right: 20px;
+        }
+      }
+    }
+
+    .empty {
+      padding: 40px 20px;
+      text-align: center;
+      color: $color-white;
+      background-color: #292929;
+      opacity: .4;
+    }
+  }
+
+  .delete-button {
+    color: $color-text;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background-color: transparent;
+    padding: 10px;
+    font-size: 14px;
+    width: 30px;
+    height: 30px;
+    border-radius: $border-radius;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color .4s ease;
+
+    &:hover {
+      background-color: $color-grey-20;
+    }
+
+    fa-icon {
+      color: lighten($color-grey-40, 20);
+      transform: translateY(2px);
+    }
+  }
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

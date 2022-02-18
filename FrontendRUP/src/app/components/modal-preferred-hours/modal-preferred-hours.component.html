@@ -1,0 +1,113 @@
+<app-modal modalTitle="Wybieranie godzin" [(open)]="open" [hideCloseButton]="hideCloseButton">
+  <form>
+    <div class="modal-text">
+      Wybierz godziny, w których aplikacja będzie organizować spotkania. Będzie można je zmenić później w profilu.
+    </div>
+    <div class="hours-group">
+      <p class="hours-title">Poniedziałek</p>
+      <div class="line">
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Od</mat-label>
+          <input type="time" matInput [formControl]="mondayStartFormControl">
+        </mat-form-field>
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Do</mat-label>
+          <input type="time" matInput [formControl]="mondayEndFormControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="hours-group">
+      <p class="hours-title">Wtorek</p>
+      <div class="line">
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Od</mat-label>
+          <input type="time" matInput [formControl]="tuesdayStartFormControl">
+        </mat-form-field>
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Do</mat-label>
+          <input type="time" matInput [formControl]="tuesdayEndFormControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="hours-group">
+      <p class="hours-title">Środa</p>
+      <div class="line">
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Od</mat-label>
+          <input type="time" matInput [formControl]="wednesdayStartFormControl">
+        </mat-form-field>
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Do</mat-label>
+          <input type="time" matInput [formControl]="wednesdayEndFormControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="hours-group">
+      <p class="hours-title">Czwartek</p>
+      <div class="line">
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Od</mat-label>
+          <input type="time" matInput [formControl]="thursdayStartFormControl">
+        </mat-form-field>
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Do</mat-label>
+          <input type="time" matInput [formControl]="thursdayEndFormControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="hours-group">
+      <p class="hours-title">Piątek</p>
+      <div class="line">
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Od</mat-label>
+          <input type="time" matInput [formControl]="fridayStartFormControl">
+        </mat-form-field>
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Do</mat-label>
+          <input type="time" matInput [formControl]="fridayEndFormControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="hours-group">
+      <p class="hours-title">Sobota</p>
+      <div class="line">
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Od</mat-label>
+          <input type="time" matInput [formControl]="saturdayStartFormControl">
+        </mat-form-field>
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Do</mat-label>
+          <input type="time" matInput [formControl]="saturdayEndFormControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <div class="hours-group">
+      <p class="hours-title">Niedziela</p>
+      <div class="line">
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Od</mat-label>
+          <input type="time" matInput [formControl]="sundayStartFormControl">
+        </mat-form-field>
+        <mat-form-field>
+          <fa-icon [icon]="faClock"></fa-icon>
+          <mat-label>Do</mat-label>
+          <input type="time" matInput [formControl]="sundayEndFormControl">
+        </mat-form-field>
+      </div>
+    </div>
+    <app-button variants="primary full-width" (click)="onAccept()">Zapisz godziny</app-button>
+  </form>
+</app-modal>

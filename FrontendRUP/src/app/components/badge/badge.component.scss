@@ -1,0 +1,22 @@
+@import '../../mixins/main';
+
+.badge-container {
+  position: relative;
+
+  .badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background-color: $color-primary;
+    transform: translateX(50%) translateY(-50%);
+    border-radius: 50%;
+    color: $color-white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 12px;
+  }
+}

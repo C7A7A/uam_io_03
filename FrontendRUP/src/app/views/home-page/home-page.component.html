@@ -1,0 +1,68 @@
+<div class="home-page">
+  <div class="hero">
+    <div class="hero-content">
+      <div class="image-container">
+        <img src="/assets/illustrations/welcome.svg" alt="welcome illustration">
+      </div>
+      <h2 class="title">Obejrzyjmy to razem!</h2>
+      <h3 class="subtitle">Wybranie zarówno terminu, jak i filmu do obejrzenia nigdy nie było takie proste. Zrób ten pierwszy krok i zaproponuj spotkanie znajomym, z szansą na przeżycie wspólnych niezapomnianych chwil...</h3>
+      <div class="buttons" *ngIf="!isLoggedIn">
+        <app-button routerLink="/login" variants="primary full-width">Zaloguj się</app-button>
+        <app-button routerLink="/register" variants="full-width">Zarejestruj się</app-button>
+      </div>
+    </div>
+  </div>
+  <div class="title-banner">Newsy</div>
+  <app-newslist-slider></app-newslist-slider>
+  <div class="title-banner">Instrukcja</div>
+  <div class="section">
+    <div class="section-content">
+      <div class="section-text">
+        <p>1. Gospodarz wydarzenia tworzy spotkanie w serwisie</p>
+      </div>
+      <div class="section-image">
+        <img src="/assets/illustrations/instruction_1.svg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-content">
+      <div class="section-text">
+        <p>2. Aplikacja przydziela znajomych do spotkania</p>
+      </div>
+      <div class="section-image">
+        <img src="/assets/illustrations/instruction_2.svg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-content">
+      <div class="section-text">
+        <p>3. Aplikacja ustala termin na podstawie danych z kalendarzy i prosi wszystkich o potwierdzenie</p>
+      </div>
+      <div class="section-image">
+        <img src="/assets/illustrations/instruction_3.svg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-content">
+      <div class="section-text">
+        <p>4. Dokonujecie selekcji proponowanych filmów</p>
+      </div>
+      <div class="section-image">
+        <img src="/assets/illustrations/instruction_4.svg" alt="">
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-content">
+      <div class="section-text">
+        <p>5. Spotykacie się na dobrym filmie</p>
+      </div>
+      <div class="section-image">
+        <img src="/assets/illustrations/instruction_5.svg" alt="">
+      </div>
+    </div>
+  </div>
+</div>

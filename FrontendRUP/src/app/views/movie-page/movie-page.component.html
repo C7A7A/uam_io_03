@@ -1,0 +1,80 @@
+<div class="movie-page">
+  <h2 class="title">Wybierz filmy</h2>
+  <div
+    class="movie-overview"
+    *ngFor="let movie of moviesList; index as ind"
+    [ngStyle]="{
+      zIndex: (moviesList.length - ind),  
+      transform: currentMovieIndex === ind ? swipeTransform : 'none'
+    }"
+    [class.behind]="currentMovieIndex < ind"
+    [class.after]="currentMovieIndex > ind"
+    (touchstart)="startSwipe($event)"
+    (touchmove)="updateSwipe($event)"
+    (touchend)="endSwipe($event)"
+  >
+    <div class="image-gallery">
+      <div class="controls">
+        <div class="shortcuts">
+          <div
+            class="shortcut"
+            *ngFor="let still of  movie.stills_path; index as i"
+            [class.active]="stillsOffset % movie.stills_path.length === i"
+          ></div>
+        </div>
+        <div class="side-previous" (click)="prevStill()"></div>
+        <div class="side-next" (click)="nextStill()"></div>
+        <div class="control-previous" (click)="prevStill()"> 
+          <fa-icon [icon]="faChevronLeft"></fa-icon>
+        </div>
+        <div class="control-next" (click)="nextStill()">
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </div>
+        <div class="actions">
+          <app-button [icon]="faTimes" variants="small" (click)="decline()">Odrzuć</app-button>
+          <app-button [icon]="faHeart" variants="primary small" (click)="accept()">Akceptuj</app-button>
+        </div>
+      </div>
+      <div class="missing-stills">
+        Brak zdjęć
+      </div>
+      <div class="stills">
+        <div
+          class="stills-wrapper"
+          *ngIf="movie.stills_path.length"
+          [ngStyle]="wrapperStyle"
+        >
+          <div class="still"
+            *ngFor="let still of movie.stills_path"
+            [ngStyle]="{backgroundImage: 'url(' + still + ')'}"
+          ></div>
+          <div class="still"
+            [ngStyle]="{backgroundImage: 'url(' + movie.stills_path[0] + ')'}"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <div class="movie-details">
+      <div class="left">
+        <img [src]="movie.poster_path">
+      </div>
+      <div class="right">
+
+        <app-movie-rating
+          [movieTitle]="movie.title"
+          [rating]="movie.rating"
+        ></app-movie-rating>
+        <app-movie-info
+          [description]="movie.description"
+          [duration]="movie.length"
+          [genres]="movie.genres"
+        ></app-movie-info>
+
+      </div>
+    </div>
+  </div>
+  <div class="summary">
+    <h3 class="summary-text">Wszystkie filmy zostały już ocenione</h3>
+    <app-button (click)="goBack()">Powrót do spotkania</app-button>
+  </div>
+</div>

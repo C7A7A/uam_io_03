@@ -1,0 +1,15 @@
+<app-modal modalTitle="Wybieranie gatunków" [(open)]="open" [hideCloseButton]="hideCloseButton">
+  <form class="genres-form">
+    <div class="modal-text">Wybierz kilka preferowanych gatunków (co najmniej 3). Będzie można je zmenić później w profilu.</div>
+    <div class="checkboxes-group">
+      <mat-checkbox
+        class="genres-checkbox"
+        *ngFor="let genre of genres"
+        [name]="genre"
+        [ngModel]="selectedGenres.has(genre)"
+        (ngModelChange)="selectedGenres.has(genre) ? selectedGenres.delete(genre) : selectedGenres.add(genre)"
+      >{{ genre }}</mat-checkbox>
+    </div>
+    <app-button variants="primary full-width" (click)="onAccept()">Zapisz gatunki</app-button>
+  </form>
+</app-modal>
